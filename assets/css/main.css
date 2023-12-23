@@ -4081,7 +4081,8 @@ input, select, textarea {
 				width: 100%;
 				z-index: 10001;
 				background: #272833;
-				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+				box-shadow: 0 0 0.7em 0 rgba(0, 200, 255, 0.25);
+				/* box-shadow: 0 0.125em 0.125em 0 rgba(232, 32, 32, 0.125); */
 			}
 
 				#titleBar .title {
