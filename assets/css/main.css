@@ -3274,7 +3274,7 @@ input, select, textarea {
 /* Animation START */
 		
 		  .cube-wrap {
-			z-index: 100;
+			z-index: -10;
 			--size: 30vmin;
 			position: fixed;
 			top: 50%;
