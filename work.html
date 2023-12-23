@@ -65,30 +65,95 @@
 
 
 
+								<!-- <style>
+									.gallery {
+  --z: 32px;  /* control the zig-zag  */
+  --s: 360px; /* control the size */
+  --g: 8px;   /* control the gap */
+  
+  display: grid;
+  gap: var(--g);
+  width: calc(2*var(--s) + var(--g));
+  grid-auto-flow: column;
+}
+.gallery > img {
+  width: 0;
+  min-width: calc(100% + var(--z)/2);
+  height: var(--s);
+  object-fit: cover;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  cursor: pointer;
+  transition: .5s;
+}
+.gallery > img:hover {
+  width: calc(var(--s)/2);
+}
+.gallery > img:first-child {
+  place-self: start;
+  clip-path: polygon(calc(2*var(--z)) 0,100% 0,100% 100%,0 100%);
+  --mask: 
+    conic-gradient(from -135deg at right,#0000,#000 1deg 89deg,#0000 90deg) 
+      50%/100% calc(2*var(--z)) repeat-y;
+}
+.gallery > img:last-child {
+  place-self: end;
+  clip-path: polygon(0 0,100% 0,calc(100% - 2*var(--z)) 100%,0 100%);
+  --mask: 
+    conic-gradient(from   45deg at left ,#0000,#000 1deg 89deg,#0000 90deg) 
+      50% calc(50% - var(--z))/100% calc(2*var(--z)) repeat-y;
+}
+								</style>
 
+								
+
+								
+									<div class="gallery">
+										<img src="https://assets.codepen.io/1480814/archer.jpg" alt="Archer from Fate/Stay">
+										<img src="https://assets.codepen.io/1480814/saber.jpg" alt="Saber from Fate/Stay">
+									  </div>
+								   -->
 
 								<div class="box align-center">
 									<div class="row gtr-uniform">
-										
+									
+								
 										<section class="col-6 col-12-medium col-12-xsmall">
 											<span class="icon solid major fa-code"></span>
 											<h3>Computer Projects</h3>
-											<a href="#" class="image fit"><img src="images/personal-images/cs-projects/dice-game.png" alt="" /></a>											<ul class="actions">
-												<a href="computer-projects.html" class="button">Go Code</a>
+											<a href="#" class="image fit"><img src="images/personal-images/cs-projects/dice-game.png" alt="" /></a>	
+											<a href="computer-projects.html" class="button primary">Go Code</a>
 										</section>
-										
-
-
-										
+		
 										<section class="col-6 col-12-medium col-12-xsmall">
 											<span class="icon solid major fa-palette"></span>
 											<h3>Graphic Designing</h3>
 											<a href="#" class="image fit"><img src="images/personal-images/cs-projects/dice-game.png" alt="" /></a>	
-											
-											<a href="design-projects.html" class="button" target="_blank">Go Design</a>
+											<a href="design-projects.html" class="button primary">Go Design</a>
 										</section>
 									</div>
 								</div>
+
+
+
+						
+
+
+<!-- 
+								<div class="box col-6 col-12-medium col-12-xsmall">
+									<div class="row gtr-uniform col-6 col-12-medium col-12-xsmall">
+										
+										<section>
+											<span class="icon solid major fa-palette"></span>
+											<h3>Graphic Designing</h3>
+											<a href="#" class="image fit"><img src="images/personal-images/cs-projects/dice-game.png" alt="" /></a>	
+											
+											<a href="design-projects.html" class="button primary" target="_blank">Go Design</a>
+										</section>
+									</div>
+								</div> -->
+								
+
 								
 
 
