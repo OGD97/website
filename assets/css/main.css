@@ -3343,7 +3343,18 @@ input, select, textarea {
 
 
 
+.gif 
+{
+	height: 400px; 
+	object-fit: cover;
+}
 
+.gif-flip
+{
+	height: 400px;
+	 object-fit: cover;
+	 transform: scaleX(-1);
+}
 
 
 
@@ -4350,15 +4361,7 @@ form {
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
-
-		/* Button */
-
-			input[type="submit"],
-			input[type="reset"],
-			input[type="button"],
-			.button {
-				padding: 0;
-			}
+		
 
 		/* Spotlight */
 
