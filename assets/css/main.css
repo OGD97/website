@@ -1217,6 +1217,7 @@ input, select, textarea {
 
 		}
 
+		
 		@media screen and (max-width: 1280px) {
 
 			.row {
@@ -2197,6 +2198,8 @@ input, select, textarea {
 
 		}
 
+		/* @media screen and (max-width: 480px) END */
+
 /* Section/Article */
 
 	section.special, article.special {
@@ -2622,11 +2625,18 @@ input, select, textarea {
 				object-fit: cover;
 			}
 
-
-
-
-
-
+			.gif 
+			{
+				height: 400px; 
+				object-fit: cover;
+			}
+			
+			.gif-flip
+			{
+				height: 400px;
+				 object-fit: cover;
+				 transform: scaleX(-1);
+			}
 
 			.carousel{
 				width: 15rem;
@@ -2811,6 +2821,8 @@ input, select, textarea {
 				font-size: 1.5rem;
 			}
 
+
+			
 			ul.actions:not(.fixed) {
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;
@@ -2859,6 +2871,8 @@ input, select, textarea {
 						}
 
 		}
+
+		/* @media screen and (max-width: 480px) END  */
 
 /* Table */
 
@@ -3343,22 +3357,6 @@ input, select, textarea {
 
 
 
-.gif 
-{
-	height: 400px; 
-	object-fit: cover;
-}
-
-.gif-flip
-{
-	height: 400px;
-	 object-fit: cover;
-	 transform: scaleX(-1);
-}
-
-
-
-
 
 
 		.spotlight.style3 .content {
@@ -3821,6 +3819,8 @@ input, select, textarea {
 
 	}
 
+	/* @media screen and (max-width: 1680px) END */
+
 /* Large */
 
 	@media screen and (max-width: 1280px) {
@@ -3871,6 +3871,8 @@ input, select, textarea {
 			}
 
 	}
+
+	/* @media screen and (max-width: 1280px) END */
 
 /* Medium */
 
@@ -3962,7 +3964,26 @@ input, select, textarea {
 				padding: 4.5em 0;
 			}
 
+				/* GIF */
+		.gif 
+		{
+			height: 400px; 
+			object-fit: cover;
+			object-position: 50% 50%;
+		}
+		
+		.gif-flip
+		{
+			height: 400px;
+			 object-fit: cover;
+			 transform: scaleX(-1);
+			 object-position: 0% 20%;
+		}
+
+
 	}
+
+	/* @media screen and (max-width: 980px) END */
 
 /* Small */
 
@@ -4275,6 +4296,8 @@ input, select, textarea {
 
 	}
 
+	/* @media screen and (max-width: 763px) END */
+
 	/* Form */
 
 form {
@@ -4330,7 +4353,7 @@ form {
 	@media screen and (max-width: 480px) {
 
 		/* Form */
-		
+
 		form > .fields {
 			width: calc(100% + 3rem);
 			margin: -1.5rem 0 2rem -1.5rem;
@@ -4402,4 +4425,22 @@ form {
 						padding: 0;
 					}
 
+			
+					/* GIFS */
+					.gif 
+					{
+						height: 200px; 
+						object-fit: cover;
+					}
+					
+					.gif-flip
+					{
+						height: 200px;
+						 object-fit: cover;
+						 transform: scaleX(-1);
+					}
+					
+
 	}
+
+	/* @media screen and (max-width: 480px) END */
