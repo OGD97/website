@@ -2635,6 +2635,7 @@ input, select, textarea {
 			{
 				height: 400px;
 				 object-fit: cover;
+				 object-position: 0% 10%;
 				 transform: scaleX(-1);
 			}
 
