@@ -207,8 +207,6 @@
   $banner._parallax();
 })(jQuery);
 
-
-
 $(document).ready(function () {
   $(".slide").slick({});
 });
@@ -224,3 +222,12 @@ window.addEventListener(
   },
   false
 );
+
+// WORKING ANIMATION FUNCTION
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 1300) {
+    $(".cube-scroll").hide();
+  } else {
+    $(".cube-scroll").show();
+  }
+});
