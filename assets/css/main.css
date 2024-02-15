@@ -3362,6 +3362,7 @@ input, select, textarea {
 			height: var(--size);
 			background-color: #eee;
 			background-color: rgb(112, 2, 112);
+			background-color: #00e6f2;
 			backface-visibility: visible;
 			top: calc(var(--size) * -.5);
 			left: calc(var(--size) * -.5);
@@ -3369,31 +3370,37 @@ input, select, textarea {
 		  .top {
 			background-color: #fff;
 			background-color: rgb(159, 5, 159);
+			background-color: #00f2ff;
 			transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
 		  }
 		  .bottom {
 			background-color: #999;
 			background-color: rgb(94, 0, 94);
+			background-color: #00656b;
 			transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
 		  }
 		  .left {
 			background-color: #ccc;
 			background-color: rgb(131, 2, 131);
+			background-color: #00e6f2;
 			transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
 		  }
 		  .right {
 			background-color: #ccc;
 			background-color: rgb(131, 2, 131);
+			background-color: #00e6f2;
 			transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
 		  }
 		  .front {
 			background-color: #aaa;
 			background-color: rgb(108, 1, 108);
+			background-color: #00e6f2;
 			transform: translateZ(calc(var(--size) * .5));
 		  }
 		  .back {
 			background-color: #bbb;
 			background-color: rgb(131, 2, 131);
+			background-color: #00b3bd;
 			transform: translateZ(calc(var(--size) * -.5));
 		  }
 		  
