@@ -225,7 +225,7 @@ window.addEventListener(
 
 // WORKING ANIMATION FUNCTION
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 1300) {
+  if ($(this).scrollTop() > 1700) {
     $(".cube-scroll").hide();
   } else {
     $(".cube-scroll").show();

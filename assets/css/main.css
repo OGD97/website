@@ -1715,6 +1715,7 @@ input, select, textarea {
 							padding-top: 5em;
 						}
 
+						
 		}
 
 		@media screen and (max-width: 736px) {
@@ -2204,6 +2205,7 @@ input, select, textarea {
 						.row.gtr-200.gtr-uniform > * {
 							padding-top: 5em;
 						}
+						
 
 		}
 
