@@ -136,7 +136,8 @@ input, select, textarea {
 		/* background: var(--blue-cool); */
 	}
 
-	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+	/* ?? */
+	/* body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
 		-ms-animation: none !important;
@@ -145,10 +146,10 @@ input, select, textarea {
 		-webkit-transition: none !important;
 		-ms-transition: none !important;
 		transition: none !important;
-	}
+	} */
 
 	body, input, select, textarea {
-		color: rgba(255, 255, 255, 0.75);
+		color: rgba(255, 255, 255, 0.85);
 		font-family: 'Poppins', 'Cairo', Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 100;
@@ -165,18 +166,14 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
-		a:hover {
+		/* a:hover {
 			color: var(--blue-cool) !important;
 			border-bottom-color: transparent;
-		}
+		} */
 
 	strong, b {
-		color: #ffffff;
+		color: #ff0000;
 		font-weight: 300;
-	}
-
-	em, i {
-		font-style: italic;
 	}
 
 	p {
@@ -187,13 +184,19 @@ input, select, textarea {
 		color: #ffffff;
 		/* font-weight: 100; */
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		/* margin: 0 0 1em 0; */
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			border: 0;
+			/* font-size: 1em; */
 		}
+
+	h1 {
+		font-size: 2em;
+		line-height: 1.5em;
+	}
 
 	h2 {
 		font-size: 2em;
@@ -2576,7 +2579,7 @@ input, select, textarea {
 /* Image */
 
 	.image {
-		border-radius: 4px;
+		border-radius: 10px;
 		border: 0;
 		display: inline-block;
 		position: relative;
@@ -2655,7 +2658,8 @@ input, select, textarea {
 				height: 20rem;
 				object-fit: cover;
 				margin: 0 .5rem;
-				border: .30rem ridge #64CDDC;
+				border: .2rem solid #64CDDC;
+				border-radius: 10px;
 			}
 
 		 
@@ -3018,6 +3022,7 @@ input, select, textarea {
 		font-weight: 400;
 	}
 
+	/* comment button */
 		input[type="submit"]:hover, input[type="submit"]:active,
 		input[type="reset"]:hover,
 		input[type="reset"]:active,
@@ -3028,7 +3033,7 @@ input, select, textarea {
 			box-shadow: inset 0 0 0 1px var(--blue-cool);
 			color: white !important;
 			background-color: var(--blue-cool);
-			
+		
 			
 		}
 
@@ -3418,6 +3423,114 @@ input, select, textarea {
 			animation-iteration-count: 1;
 			animation-fill-mode: both;
 		  }
+
+/* Animation END */
+
+
+.autoShow {
+	animation: autoShowAnimation;
+	animation-timeline: view(40%, 30%);
+}
+
+@keyframes autoShowAnimation {
+	from{
+		opacity: 0;
+		transform: translateY(200px) scale(0.3);
+	}to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+
+
+
+/* MATRIX ANIMATION START */
+		
+
+.matrix-wrap {
+	z-index: 50;
+	--size: 30vmin;
+	position: fixed;
+	top: 50%;
+	left: 75%;
+	width: 0;
+	height: 0;
+	perspective: 100vmin;
+  }
+  .matrix{
+	transform-style: preserve-3d;
+	transform: rotateX(0deg) rotateZ(45deg) rotateY(-45deg);
+	animation: cube 1s linear;
+	/* animation-timeline: view(); */
+	/* animation: fade-in 1s linear;
+	animation-timeline: view();
+	animation-range-start: ;
+	animation-range-end:  ; */
+  }
+  @keyframes matrix {
+	to {
+	  transform: rotateX(360deg) rotateZ(45deg) rotateY(-45deg);
+	}
+  }
+  
+  .MATRIXside {
+	position: absolute;
+	width: var(--size);
+	height: var(--size);
+	background-color: #eee;
+	background-color: rgb(112, 2, 112);
+	background-color: #00e6f2;
+	backface-visibility: visible;
+	top: calc(var(--size) * -.5);
+	left: calc(var(--size) * -.5);
+  }
+  .MATRIXtop {
+	background-color: #fff;
+	background-color: rgb(159, 5, 159);
+	background-color: #00f2ff;
+	transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .MATRIXbottom {
+	background-color: #999;
+	background-color: rgb(94, 0, 94);
+	background-color: #00656b;
+	transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .MATRIXleft {
+	background-color: #ccc;
+	background-color: rgb(131, 2, 131);
+	background-color: #00e6f2;
+	transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .MATRIXright {
+	background-color: #ccc;
+	background-color: rgb(131, 2, 131);
+	background-color: #00e6f2;
+	transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .MATRIXfront {
+	background-color: #aaa;
+	background-color: rgb(108, 1, 108);
+	background-color: #00e6f2;
+	transform: translateZ(calc(var(--size) * .5));
+  }
+  .MATRIXback {
+	background-color: #bbb;
+	background-color: rgb(131, 2, 131);
+	background-color: #00b3bd;
+	transform: translateZ(calc(var(--size) * -.5));
+  }
+  
+  :root * {
+	/* Pause the animation */
+	animation-play-state: paused;
+	/* Bind the animation to scroll */
+	animation-delay: calc(var(--scroll) * -1s);
+	/* These last 2 properites clean up overshoot weirdness */
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+  }
 
 /* Animation END */
 

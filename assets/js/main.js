@@ -231,3 +231,19 @@ $(window).scroll(function () {
     $(".cube-scroll").show();
   }
 });
+
+
+
+
+
+// // WORKING ANIMATION FUNCTION
+$(window).scroll(function () {
+
+  if ($(this).scrollTop() > 2600) {
+    $(".matrix-scroll").hide();
+  } else {
+    $(".matrix-scroll").show();
+  }
+
+  
+});
