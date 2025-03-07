@@ -3732,6 +3732,7 @@ input, select, textarea {
 		margin-top: calc(-0.25em + 1px);
 		min-width: 12em;
 		padding: 0.25em 0;
+		font-weight: 200;
 	}
 
 		.dropotron > li {
@@ -3750,6 +3751,7 @@ input, select, textarea {
 				display: block;
 				padding: 0.1em 1em;
 				text-decoration: none;
+				font-weight: 400;
 			}
 
 			.dropotron > li:first-child {
@@ -3922,7 +3924,7 @@ input, select, textarea {
 			}
 
 				#banner .content header h2 {
-					font-size: 6em;
+					font-size: 5em;
 					margin: 0;
 				}
 
@@ -4272,7 +4274,7 @@ input, select, textarea {
 
 			#code
 			{
-				font-size: 1.5rem;
+				font-size: 2rem;
 			}
 
 
@@ -4298,7 +4300,7 @@ input, select, textarea {
 				}
 
 					#banner .content header h2 {
-						font-size: 2em;
+						font-size: 3em;
 					}
 
 					#banner .content .image {
@@ -4428,19 +4430,20 @@ input, select, textarea {
 					height: 3em;
 					line-height: 3em;
 					text-decoration: none;
+					font-weight: 400;
 				}
 
 					#navPanel .link:hover {
 						color: inherit !important;
+						/* background-color: #00b3bd; */
 					}
 
 					#navPanel .link:first-child {
 						border-top: 0;
 					}
-
 					#navPanel .link.depth-0 {
 						color: #ffffff;
-						font-weight: 300;
+						
 					}
 
 					#navPanel .link .indent-1 {
