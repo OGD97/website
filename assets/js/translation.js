@@ -1,31 +1,38 @@
 const translations = {
     en: {
         title: "About",
-        paragraph: "Hello, I'm Omar, a seasoned front-end developer and graphic designer based in Germany. I began my journey in 2016, honing my skills during a Turkish Language Course and later earning a degree in Computer Engineering from Çankaya University in 2021. Currently, I work as a freelance graphic designer and web developer, engaging in side projects to further expand my knowledge.\n\nPassionate about technology, digital design, and arts, I also advocate for animal welfare. My goal as a graphic designer is to craft visually compelling designs that effectively convey messages. Proficient in Adobe Creative Suite, including Photoshop and Illustrator, I specialize in print design, branding, and typography. Collaborating closely with clients, I bring their visions to life with meticulous attention to detail and a keen sense of design aesthetics.\n\nOn the web development front, I excel in HTML, CSS, JavaScript, and various programming languages, with experience in WordPress and responsive design. Keeping pace with the latest trends, I deliver high-quality, user-centric solutions tailored to diverse needs. Eager to take on new challenges, I'm seeking an opportunity to contribute my skills and experience to a dynamic company, driving innovation and success. Committed to delivering top-notch results, I am excited about the prospect of joining a team that values excellence, creativity, and positive impact.",
+        paragraph: `Hello, I'm Omar, a passionate front-end developer and graphic designer with years of experience crafting digital experiences and visual identities. Since 2016, I have been refining my skills in web development and design, combining creativity with technical expertise to deliver compelling solutions.\n\nAs a graphic designer, I specialize in branding, typography, and print design, with proficiency in Adobe Creative Suite, including Photoshop and Illustrator. I focus on translating ideas into impactful visuals that effectively communicate messages.\n\nOn the web development side, I work with HTML, CSS, JavaScript, and various frameworks, ensuring responsive and user-friendly interfaces. I have experience with WordPress, Webflow, and Shopify, creating seamless and customized websites. Currently, I’m working on projects using React.js and React Native, continuously expanding my knowledge and refining my skills. Being self-taught, I stay up to date with the latest technologies and industry trends, always eager to learn and adapt.\n\nI thrive on taking on new challenges, bringing creative and functional ideas to life. Whether working independently or as part of a team, my goal is to contribute meaningful work that blends aesthetics, usability, and technical precision.`,
         contact: "For further information, you can download my CV by clicking on the button below ^_^",
-        button: "Download here "
+        button: "Download here",
 
+        downloadLink:"images/personal-images/CVs/Website-CV-EN-25.pdf"
     },
     de: {
         title: "Über mich",
-        paragraph: "Hallo, ich bin Omar, ein erfahrener Frontend-Entwickler und Grafikdesigner mit Sitz in Deutschland. Meine Reise begann im Jahr 2016, als ich während eines Türkischsprachkurses meine Fähigkeiten verfeinerte und später 2021 einen Abschluss in Computertechnik von der Çankaya-Universität erwarb. Derzeit arbeite ich als freiberuflicher Grafikdesigner und Webentwickler und beschäftige mich mit Nebenprojekten, um mein Wissen weiter zu vertiefen.\n\nLeidenschaftlich für Technologie, digitales Design und Kunst setze ich mich auch für den Tierschutz ein. Mein Ziel als Grafikdesigner ist es, visuell ansprechende Designs zu gestalten, die Botschaften effektiv vermitteln. Mit fundierten Kenntnissen in der Adobe Creative Suite, einschließlich Photoshop und Illustrator, habe ich mich auf Druckdesign, Branding und Typografie spezialisiert. In enger Zusammenarbeit mit meinen Kunden erwecke ich ihre Visionen mit großer Sorgfalt und einem ausgeprägten Sinn für Designästhetik zum Leben.\n\nIm Bereich der Webentwicklung beherrsche ich HTML, CSS, JavaScript und verschiedene Programmiersprachen und habe Erfahrung mit WordPress und responsivem Design. Ich halte mich stets auf dem neuesten Stand der aktuellen Trends und liefere qualitativ hochwertige, benutzerzentrierte Lösungen, die auf unterschiedliche Bedürfnisse zugeschnitten sind. Immer bereit für neue Herausforderungen, suche ich nach einer Gelegenheit, meine Fähigkeiten und Erfahrungen in einem dynamischen Unternehmen einzubringen, das Innovation und Erfolg vorantreibt. Engagiert für erstklassige Ergebnisse, freue ich mich darauf, Teil eines Teams zu werden, das Exzellenz, Kreativität und positive Auswirkungen schätzt.",
+        paragraph: `Hallo, ich bin Omar, ein leidenschaftlicher Frontend-Entwickler und Grafikdesigner mit jahrelanger Erfahrung in der Gestaltung digitaler Erlebnisse und visueller Identitäten. Seit 2016 verfeinere ich meine Fähigkeiten in der Webentwicklung und im Design, indem ich Kreativität mit technischer Expertise kombiniere, um überzeugende Lösungen zu liefern.\n\nAls Grafikdesigner spezialisiere ich mich auf Branding, Typografie und Printdesign und beherrsche die Adobe Creative Suite, einschließlich Photoshop und Illustrator. Mein Fokus liegt darauf, Ideen in wirkungsvolle visuelle Darstellungen zu übersetzen, die Botschaften effektiv vermitteln.\n\nIm Bereich Webentwicklung arbeite ich mit HTML, CSS, JavaScript und verschiedenen Frameworks, um responsive und benutzerfreundliche Oberflächen zu gewährleisten. Ich habe Erfahrung mit WordPress, Webflow und Shopify und erstelle nahtlose und maßgeschneiderte Websites. Derzeit arbeite ich an Projekten mit React.js und React Native, um mein Wissen kontinuierlich zu erweitern und meine Fähigkeiten weiterzuentwickeln.\n\nIch liebe es, neue Herausforderungen anzunehmen und kreative sowie funktionale Ideen zum Leben zu erwecken. Ob unabhängig oder im Team – mein Ziel ist es, bedeutungsvolle Arbeit zu leisten, die Ästhetik, Benutzerfreundlichkeit und technische Präzision vereint.`,
         contact: "Für weitere Informationen können Sie meinen Lebenslauf herunterladen, indem Sie auf den untenstehenden Button klicken ^_^",
-        button: "Hier herunterladen"
+        button: "Hier herunterladen",
+
+       downloadLink:"images/personal-images/CVs/Website-CV-DE-25.pdf"
     },
     tr: {
         title: "Hakkımda",
-        paragraph: "",
+        paragraph: `Merhaba, ben Omar. Dijital deneyimler ve görsel kimlikler oluşturma konusunda yılların deneyimine sahip tutkulu bir front-end geliştirici ve grafik tasarımcıyım. 2016'dan beri web geliştirme ve tasarım becerilerimi geliştiriyor, yaratıcılığı teknik uzmanlıkla birleştirerek etkileyici çözümler sunuyorum.\n\nGrafik tasarımcı olarak, markalaşma, tipografi ve baskı tasarımında uzmanım ve Adobe Creative Suite (Photoshop ve Illustrator dahil) konusunda yetkinim. Fikirleri etkileyici görsellere dönüştürerek mesajları etkili bir şekilde iletmeye odaklanıyorum.\n\nWeb geliştirme alanında HTML, CSS, JavaScript ve çeşitli framework’lerle çalışarak duyarlı ve kullanıcı dostu arayüzler oluşturuyorum. WordPress, Webflow ve Shopify platformlarında deneyimliyim ve özel tasarım web siteleri geliştiriyorum. Şu anda React.js ve React Native projeleri üzerinde çalışıyorum, bilgimi sürekli genişletiyor ve becerilerimi geliştiriyorum.\n\nYeni zorluklar üstlenmeyi seviyorum ve yaratıcı, işlevsel fikirleri hayata geçirmeyi hedefliyorum. Bağımsız çalışırken veya bir ekibin parçası olarak, estetik, kullanılabilirlik ve teknik hassasiyeti birleştiren anlamlı projelere katkıda bulunmak benim için çok önemli.`,
         contact: "Bana e-posta yoluyla ulaşmaktan çekinmeyin!\n\nDaha fazla bilgi için aşağıdaki butona tıklayarak CV'mi indirebilirsiniz ^_^",
-        button: "Indir"
-    },
+        button: "İndir",
 
+        downloadLink:"images/personal-images/CVs/Website-CV-EN-25.pdf"
+    },
     ar: {
         title: "مين أنا؟",
-        paragraph: "     \n\n    اهلين، أنا عمر، مطور ومصمم جرافيك ذو خبرة ومقيم حالياً في ألمانيا. بدأت رحلتي في عام 2016، حيث طورت مهاراتي خلال دورة لتعلم اللغة التركية، وحصلت لاحقًا على درجة البكالوريوس في هندسة الحاسوب من جامعة شانكايا في عام 2021. أعمل حاليًا كمصمم جرافيك ومطور مواقع ويب، وأشارك في مشاريع جانبية لتعزيز معرفتي.      \n\n أشعر بشغف تجاه التكنولوجيا، التصميم الرقمي والفنون، وأدافع أيضًا عن رفاهية الحيوانات. هدفي كمصمم جرافيك هو إنشاء تصاميم جذابة بصريًا تنقل الرسائل بفعالية. أجيد استخدام مجموعة Adobe Creative Suite، بما في ذلك Photoshop وIllustrator، وأتخصص في تصميم المطبوعات، العلامات التجارية، والطباعة. من خلال التعاون الوثيق مع العملاء، أحوّل رؤاهم إلى حقيقة مع اهتمام دقيق بالتفاصيل وحس جمالي متميز. \n\n في مجال تطوير الويب، أتقن HTML، CSS، JavaScript، والعديد من لغات البرمجة، ولدي خبرة في WordPress والتصميم المتجاوب. أواكب أحدث الاتجاهات وأقدم حلولًا عالية الجودة تتمحور حول المستخدم وتتناسب مع احتياجات متنوعة. أتطلع إلى مواجهة تحديات جديدة وأسعى للانضمام إلى شركة ديناميكية أساهم فيها بمهاراتي وخبراتي، لدفع الابتكار وتحقيق النجاح. ملتزم بتقديم نتائج عالية الجودة، وأنا متحمس لفكرة الانضمام إلى فريق يقدّر التميز، الإبداع، والأثر الإيجابي.",
-        contact: "لا تتردد في التواصل معي عبر البريد الإلكتروني!\n\n لمزيد من المعلومات، يمكنك تحميل الCV من خلال الضغط على الزر أدناه ^_^ \n\n",
-        button: "تحميل"
+        paragraph: `أهلًا، أنا عمر، مطور واجهات أمامية ومصمم جرافيك شغوف يتمتع بخبرة سنوات في إنشاء تجارب رقمية وهويات بصرية. منذ عام 2016، وأنا أعمل على تطوير مهاراتي في تطوير الويب والتصميم، وأجمع بين الإبداع والخبرة التقنية لتقديم حلول فعالة.\n\nكمصمم جرافيك، أتخصص في العلامات التجارية، والطباعة، والتصميم الطباعي، مع إتقان مجموعة Adobe Creative Suite، بما في ذلك Photoshop و Illustrator. أركز على تحويل الأفكار إلى تصاميم بصرية مؤثرة توصل الرسائل بفعالية.\n\nفي مجال تطوير الويب، أعمل مع HTML، CSS، JavaScript، والعديد من الأطر البرمجية، لضمان واجهات متجاوبة وسهلة الاستخدام. لدي خبرة في WordPress، Webflow، و Shopify، وأقوم بإنشاء مواقع ويب سلسة ومخصصة. حاليًا، أعمل على مشاريع باستخدام React.js و React Native، مما يساعدني في توسيع معرفتي وصقل مهاراتي باستمرار.\n\nأستمتع بمواجهة التحديات الجديدة وجلب الأفكار الإبداعية والوظيفية إلى الحياة. سواء كنت أعمل بشكل مستقل أو كجزء من فريق، فإن هدفي هو تقديم أعمال ذات قيمة تمزج بين الجماليات وسهولة الاستخدام والدقة التقنية.`,
+        contact: "لا تتردد في التواصل معي عبر البريد الإلكتروني!\n\n لمزيد من المعلومات، يمكنك تحميل الCV من خلال الضغط على الزر أدناه ^_^",
+        button: "تحميل",
+
+        downloadLink:"images/personal-images/CVs/Website-CV-EN-25.pdf"
     }
-}
+};
+
 
 
 const langSelect = document.querySelector("select");
@@ -37,6 +44,7 @@ let contact = document.getElementById("contact");
 let button = document.getElementById("button");
 
 let title = document.getElementById("title");
+
 
 langSelect.addEventListener("change", (event)=> {
     setLanguage(event.target.value)
@@ -52,6 +60,9 @@ const setLanguage = (language) => {
         title.innerText = translations.en.title;
         
         document.getElementById("paragraph").style.direction = "ltr";
+
+        button.href = translations.de.downloadLink;
+
     }
     else if (language == "de")
     {
@@ -59,6 +70,8 @@ const setLanguage = (language) => {
         button.innerText = translations.de.button;
         contact.innerText = translations.de.contact;
         title.innerText = translations.de.title;
+
+        button.href = translations.de.downloadLink;
         
         
         document.getElementById("paragraph").style.direction = "ltr";
@@ -69,6 +82,8 @@ const setLanguage = (language) => {
         button.innerText = translations.tr.button;
         contact.innerText = translations.tr.contact;
         title.innerText = translations.tr.title;
+
+        button.href = translations.tr.downloadLink;
 
         document.getElementById("paragraph").style.direction = "ltr";
 
@@ -81,6 +96,7 @@ const setLanguage = (language) => {
         button.innerText = translations.ar.button;
         contact.innerText = translations.ar.contact;
         title.innerText = translations.ar.title;
+        button.href = translations.ar.downloadLink;
 
         document.getElementById("paragraph").style.direction = "rtl";
         document.getElementById("contact").style.direction = "rtl";
