@@ -1,249 +1,243 @@
-(function ($) {
-  var $window = $(window),
-    $body = $("body");
+/**
+* Template Name: Style
+* Template URL: https://bootstrapmade.com/style-bootstrap-portfolio-template/
+* Updated: Jul 02 2025 with Bootstrap v5.3.7
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
 
-  // Breakpoints.
-  breakpoints({
-    xlarge: ["1281px", "1680px"],
-    large: ["981px", "1280px"],
-    medium: ["737px", "980px"],
-    small: ["481px", "736px"],
-    xsmall: [null, "480px"],
-  });
+(function() {
+  "use strict";
 
-  // Play initial animations on page load.
-  $window.on("load", function () {
-    window.setTimeout(function () {
-      $body.removeClass("is-preload");
-    }, 100);
-  });
+  /**
+   * Apply .scrolled class to the body as the page is scrolled down
+   */
+  function toggleScrolled() {
+    const selectBody = document.querySelector('body');
+    const selectHeader = document.querySelector('#header');
+    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  }
 
-  // Touch mode.
-  if (browser.mobile) $body.addClass("is-touch");
+  document.addEventListener('scroll', toggleScrolled);
+  window.addEventListener('load', toggleScrolled);
 
-  // Scrolly links.
-  $(".scrolly").scrolly({
-    speed: 2000,
-  });
+  /**
+   * Mobile nav toggle
+   */
+  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  // Dropdowns.
-  $("#nav > ul").dropotron({
-    alignment: "right",
-    hideDelay: 350,
-  });
+  function mobileNavToogle() {
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavToggleBtn.classList.toggle('bi-list');
+    mobileNavToggleBtn.classList.toggle('bi-x');
+  }
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  }
 
-  // Nav.
-
-  // Title Bar.
-  $(
-    '<div id="titleBar">' +
-      '<a href="#navPanel" class="toggle"></a>' +
-      '<span class="title">' +
-      $("#logo").html() +
-      "</span>" +
-      "</div>"
-  ).appendTo($body);
-
-  // Panel.
-  $('<div id="navPanel">' + "<nav>" + $("#nav").navList() + "</nav>" + "</div>")
-    .appendTo($body)
-    .panel({
-      delay: 500,
-      hideOnClick: true,
-      hideOnSwipe: true,
-      resetScroll: true,
-      resetForms: true,
-      side: "left",
-      target: $body,
-      visibleClass: "navPanel-visible",
+  /**
+   * Hide mobile nav on same-page/hash links
+   */
+  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+      }
     });
 
-  // Parallax.
-  // Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
-  if (browser.name == "ie" || browser.mobile) {
-    $.fn._parallax = function () {
-      return $(this);
-    };
-  } else {
-    $.fn._parallax = function () {
-      $(this).each(function () {
-        var $this = $(this),
-          on,
-          off;
+  });
 
-        on = function () {
-          $this.css("background-position", "center 0px");
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
 
-          $window.on("scroll._parallax", function () {
-            var pos =
-              parseInt($window.scrollTop()) - parseInt($this.position().top);
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
 
-            $this.css("background-position", "center " + pos * -0.15 + "px");
-          });
-        };
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    }
+  }
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 
-        off = function () {
-          $this.css("background-position", "");
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
 
-          $window.off("scroll._parallax");
-        };
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
 
-        breakpoints.on("<=medium", off);
-        breakpoints.on(">medium", on);
-      });
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
 
-      return $(this);
-    };
-
-    $window.on("load resize", function () {
-      $window.trigger("scroll");
+  /**
+   * Init typed.js
+   */
+  const selectTyped = document.querySelector('.typed');
+  if (selectTyped) {
+    let typed_strings = selectTyped.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
     });
   }
 
-  // Spotlights.
-  var $spotlights = $(".spotlight");
+  /**
+   * Animate the skills items on reveal
+   */
+  let skillsAnimation = document.querySelectorAll('.skills-animation');
+  skillsAnimation.forEach((item) => {
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = item.querySelectorAll('.progress .progress-bar');
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
+    });
+  });
 
-  $spotlights._parallax().each(function () {
-    var $this = $(this),
-      on,
-      off;
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
 
-    on = function () {
-      var top, bottom, mode;
+  /**
+   * Init isotope layout and filters
+   */
+  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
-      // Use main <img>'s src as this spotlight's background.
-      $this.css(
-        "background-image",
-        'url("' + $this.find(".image.main > img").attr("src") + '")'
+    let initIsotope;
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+    });
+
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+      filters.addEventListener('click', function() {
+        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        this.classList.add('filter-active');
+        initIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        if (typeof aosInit === 'function') {
+          aosInit();
+        }
+      }, false);
+    });
+
+  });
+
+  /**
+   * Init swiper sliders
+   */
+  function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
 
-      // Side-specific scrollex tweaks.
-      if ($this.hasClass("top")) {
-        mode = "top";
-        top = "-20%";
-        bottom = 0;
-      } else if ($this.hasClass("bottom")) {
-        mode = "bottom-only";
-        top = 0;
-        bottom = "20%";
+      if (swiperElement.classList.contains("swiper-tab")) {
+        initSwiperWithCustomPagination(swiperElement, config);
       } else {
-        mode = "middle";
-        top = 0;
-        bottom = 0;
+        new Swiper(swiperElement, config);
       }
-
-      // Add scrollex.
-      $this.scrollex({
-        mode: mode,
-        top: top,
-        bottom: bottom,
-        initialize: function (t) {
-          $this.addClass("inactive");
-        },
-        terminate: function (t) {
-          $this.removeClass("inactive");
-        },
-        enter: function (t) {
-          $this.removeClass("inactive");
-        },
-
-        // Uncomment the line below to "rewind" when this spotlight scrolls out of view.
-
-        //leave:	function(t) { $this.addClass('inactive'); },
-      });
-    };
-
-    off = function () {
-      // Clear spotlight's background.
-      $this.css("background-image", "");
-
-      // Remove scrollex.
-      $this.unscrollex();
-    };
-
-    breakpoints.on("<=medium", off);
-    breakpoints.on(">medium", on);
-  });
-
-  // Wrappers.
-  var $wrappers = $(".wrapper");
-
-  $wrappers.each(function () {
-    var $this = $(this),
-      on,
-      off;
-
-    on = function () {
-      $this.scrollex({
-        top: 250,
-        bottom: 0,
-        initialize: function (t) {
-          $this.addClass("inactive");
-        },
-        terminate: function (t) {
-          $this.removeClass("inactive");
-        },
-        enter: function (t) {
-          $this.removeClass("inactive");
-        },
-
-        // Uncomment the line below to "rewind" when this wrapper scrolls out of view.
-
-        //leave:	function(t) { $this.addClass('inactive'); },
-      });
-    };
-
-    off = function () {
-      $this.unscrollex();
-    };
-
-    breakpoints.on("<=medium", off);
-    breakpoints.on(">medium", on);
-  });
-
-  // Banner.
-  var $banner = $("#banner");
-
-  $banner._parallax();
-})(jQuery);
-
-$(document).ready(function () {
-  $(".slide").slick({});
-});
-
-//  ANIMATION
-window.addEventListener(
-  "scroll",
-  () => {
-    document.body.style.setProperty(
-      "--scroll",
-      window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
-    );
-  },
-  false
-);
-
-// WORKING ANIMATION FUNCTION
-$(window).scroll(function () {
-  if ($(this).scrollTop() > 1700) {
-    $(".cube-scroll").hide();
-  } else {
-    $(".cube-scroll").show();
-  }
-});
-
-
-
-
-
-// // WORKING ANIMATION FUNCTION
-$(window).scroll(function () {
-
-  if ($(this).scrollTop() > 2600) {
-    $(".matrix-scroll").hide();
-  } else {
-    $(".matrix-scroll").show();
+    });
   }
 
-  
-});
+  window.addEventListener("load", initSwiper);
+
+  /**
+   * Frequently Asked Questions Toggle
+   */
+  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach((faqItem) => {
+    faqItem.addEventListener('click', () => {
+      faqItem.parentNode.classList.toggle('faq-active');
+    });
+  });
+
+  /**
+   * Correct scrolling position upon page load for URLs containing hash links.
+   */
+  window.addEventListener('load', function(e) {
+    if (window.location.hash) {
+      if (document.querySelector(window.location.hash)) {
+        setTimeout(() => {
+          let section = document.querySelector(window.location.hash);
+          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          window.scrollTo({
+            top: section.offsetTop - parseInt(scrollMarginTop),
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  });
+
+  /**
+   * Navmenu Scrollspy
+   */
+  let navmenulinks = document.querySelectorAll('.navmenu a');
+
+  function navmenuScrollspy() {
+    navmenulinks.forEach(navmenulink => {
+      if (!navmenulink.hash) return;
+      let section = document.querySelector(navmenulink.hash);
+      if (!section) return;
+      let position = window.scrollY + 200;
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+        navmenulink.classList.add('active');
+      } else {
+        navmenulink.classList.remove('active');
+      }
+    })
+  }
+  window.addEventListener('load', navmenuScrollspy);
+  document.addEventListener('scroll', navmenuScrollspy);
+
+})();
