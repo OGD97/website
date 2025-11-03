@@ -3174,3 +3174,42 @@ section,
   font-weight: 600;
   
 }
+
+
+/* GLightbox Title */
+.gslide-title {
+  font-family: var(--heading-font);
+  color: red;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* GLightbox Description */
+.gslide-desc {
+  font-family: var(--heading-font);
+  color: var(--default-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Link inside lightbox description */
+.gslide-desc a {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 2px;
+  transition: 0.2s ease;
+}
+
+.gslide-desc a:hover {
+  opacity: 0.75;
+}
+
+/* Optional: add subtle background to caption area */
+.gSlideDesc {
+  background: var(--surface-color);
+  padding: 15px 20px;
+  border-radius: 10px;
+}
