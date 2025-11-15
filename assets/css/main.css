@@ -2499,7 +2499,7 @@ section,
 }
 
 .portfolio-details .portfolio-details-media .main-image .portfolio-details-slider .swiper-slide img {
-  aspect-ratio: 3/2;
+  /* aspect-ratio: 3/2; */
   object-fit: cover;
   width: 100%;
 }
