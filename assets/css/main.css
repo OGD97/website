@@ -3213,3 +3213,46 @@ section,
   padding: 15px 20px;
   border-radius: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.coming-soon {
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon::before {
+  content: "COMING SOON :)";
+  font-family: var(--heading-font);
+  /* white-space: nowrap; */
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;                  /* Adjust size */
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15); /* transparent white */
+  color: var(--surface-color);
+  text-transform: uppercase;
+  pointer-events: none;             /* Allow clicking through */
+  z-index: 1;                       /* Behind overlay content */
+}
+
+.coming-soon .entry-image img {
+  filter: blur(2px); /* Optional: blur the background image */
+}
+
+.entry-overlay {
+  position: relative;
+  z-index: 2; /* overlay sits above background text */
+}
