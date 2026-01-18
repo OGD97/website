@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 
 /*--------------------------------------------------------------
@@ -7,29 +6,41 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Quicksand",  sans-serif;
-  --nav-font: "Open Sans",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Quicksand", sans-serif;
+  --nav-font: "Open Sans", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #314862; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #13447f; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #065cc2; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #314862;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #13447f;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #065cc2;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #314862;  /* The default color of the main navmenu links */
-  --nav-hover-color: #065cc2; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #11427d; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #065cc2; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #acc4e0; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #314862;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #065cc2;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #11427d;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #065cc2;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #acc4e0;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffffff;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -2001,6 +2012,137 @@ section,
   }
 }
 
+
+/*--------------------------------------------------------------
+# Glightbox Custom Professional Redesign
+--------------------------------------------------------------*/
+.glightbox-container .gslide-description {
+  background: var(--surface-color) !important;
+  max-width: 450px !important;
+  padding: 35px !important;
+  border-radius: 0 0 15px 15px !important;
+}
+
+
+/* Hide description on mobile/tablets to prevent covering the image */
+@media (max-width: 991px) {
+  .glightbox-container .gslide-description {
+    display: none !important;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .glightbox-container .gslide-description {
+    border-radius: 0 15px 15px 0 !important;
+    max-height: 100vh !important;
+  }
+}
+
+.glightbox-container .gslide-title {
+  font-family: var(--heading-font) !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: var(--heading-color) !important;
+  margin-bottom: 20px !important;
+  line-height: 1.2 !important;
+  position: relative;
+  display: block;
+}
+
+.glightbox-container .gslide-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.project-details-content {
+  color: var(--default-color);
+}
+
+.project-details-content .project-description {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+.project-details-content .project-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 96%);
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.project-details-content .meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-details-content .meta-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-color);
+}
+
+.project-details-content .meta-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+.project-details-content .project-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-details-content .btn-project {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.project-details-content .btn-main {
+  background: var(--accent-color);
+  color: var(--contrast-color) !important;
+}
+
+.project-details-content .btn-main:hover {
+  background: color-mix(in srgb, var(--accent-color), black 15%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.project-details-content .btn-secondary {
+  background: transparent;
+  color: var(--accent-color) !important;
+  border: 1px solid var(--accent-color);
+}
+
+.project-details-content .btn-secondary:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  transform: translateY(-2px);
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
@@ -3172,7 +3314,7 @@ section,
   font-family: var(--heading-font);
   font-size: 1.1rem;
   font-weight: 600;
-  
+
 }
 
 
@@ -3239,20 +3381,26 @@ section,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;                  /* Adjust size */
+  font-size: 2.5rem;
+  /* Adjust size */
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.15); /* transparent white */
+  color: rgba(255, 255, 255, 0.15);
+  /* transparent white */
   color: var(--surface-color);
   text-transform: uppercase;
-  pointer-events: none;             /* Allow clicking through */
-  z-index: 1;                       /* Behind overlay content */
+  pointer-events: none;
+  /* Allow clicking through */
+  z-index: 1;
+  /* Behind overlay content */
 }
 
 .coming-soon .entry-image img {
-  filter: blur(2px); /* Optional: blur the background image */
+  filter: blur(2px);
+  /* Optional: blur the background image */
 }
 
 .entry-overlay {
   position: relative;
-  z-index: 2; /* overlay sits above background text */
+  z-index: 2;
+  /* overlay sits above background text */
 }
