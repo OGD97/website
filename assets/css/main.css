@@ -27,6 +27,16 @@
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --background-color: #0b0e14;
+  --default-color: #cbd5e0;
+  --heading-color: #60a5fa;
+  --accent-color: #3b82f6;
+  --surface-color: #1a202c;
+  --contrast-color: #ffffff;
+}
+
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #314862;
@@ -43,11 +53,25 @@
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
+[data-theme="dark"] {
+  --nav-color: #c9d1d9;
+  --nav-hover-color: #58a6ff;
+  --nav-mobile-background-color: #0d1117;
+  --nav-dropdown-background-color: #161b22;
+  --nav-dropdown-color: #8b949e;
+  --nav-dropdown-hover-color: #ffffff;
+}
+
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
   --background-color: #f7faff;
   --surface-color: #ffffff;
+}
+
+[data-theme="dark"] .light-background {
+  --background-color: #161b22;
+  --surface-color: #0d1117;
 }
 
 .dark-background {
@@ -57,6 +81,11 @@
   --accent-color: #afcdf1;
   --surface-color: #2973cc;
   --contrast-color: #ffffff;
+}
+
+[data-theme="dark"] .dark-background {
+  --background-color: #053b7a;
+  --surface-color: #065cc2;
 }
 
 /* Smooth scroll */
@@ -71,6 +100,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -114,6 +144,7 @@ h6 {
   padding: 15px;
   margin-bottom: 24px;
   font-weight: 600;
+  border-radius: 8px;
 }
 
 .php-email-form .loading {
@@ -156,6 +187,10 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+}
+
+[data-theme="dark"] .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header .logo {
@@ -358,8 +393,9 @@ h6 {
   color: var(--default-color);
   background-color: var(--background-color);
   font-size: 14px;
-  padding: 40px 0;
+  padding: 60px 0;
   position: relative;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .copyright p {
@@ -430,6 +466,56 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Theme Toggle
+--------------------------------------------------------------*/
+.theme-toggle {
+  color: var(--nav-color);
+  position: fixed;
+  top: 24px;
+  right: 65px;
+  font-size: 24px;
+  line-height: 0;
+  cursor: pointer;
+  z-index: 999;
+  transition: 0.3s;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  color: var(--nav-hover-color);
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle .bi-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .bi-moon {
+  display: none;
+}
+
+.theme-toggle .bi-sun {
+  display: none;
+}
+
+.theme-toggle .bi-moon {
+  display: block;
+}
+
+.mobile-nav-active .theme-toggle {
+  right: 360px !important;
+  top: 22px !important;
+}
+
+/*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
@@ -448,9 +534,32 @@ h6 {
   position: relative;
 }
 
-.page-title h1 {
-  font-size: 24px;
-  font-weight: 700;
+/* Glassmorphism Utility */
+.glass-effect {
+  background: color-mix(in srgb, var(--surface-color), transparent 20%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%);
+}
+
+.skill-card {
+  padding: 30px;
+  background: var(--surface-color);
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+[data-theme="dark"] .skill-card {
+  background: color-mix(in srgb, var(--surface-color), transparent 40%);
+  backdrop-filter: blur(10px);
 }
 
 .page-title .breadcrumbs ol {
@@ -483,6 +592,7 @@ section,
   background-color: var(--background-color);
   padding: 60px 0;
   overflow: clip;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /*--------------------------------------------------------------
@@ -505,11 +615,16 @@ section,
 
 .section-title h2::after {
   content: "";
-  width: 120px;
+  width: 0;
   height: 1px;
-  display: inline-block;
+  display: block;
   background: var(--accent-color);
-  margin: 10px 10px;
+  margin-top: 10px;
+  transition: width 0.5s ease;
+}
+
+.section-title:hover h2::after {
+  width: 120px;
 }
 
 .section-title p {
@@ -532,6 +647,11 @@ section,
   align-items: center;
 }
 
+[data-theme="dark"] .hero {
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent 40%);
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -543,6 +663,10 @@ section,
   background-size: cover;
   opacity: 0.08;
   z-index: 1;
+}
+
+[data-theme="dark"] .hero::before {
+  opacity: 0.15;
 }
 
 .hero .container {
@@ -790,6 +914,17 @@ section,
   gap: 10px;
   white-space: nowrap;
   animation: float 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.hero .floating-card:hover {
+  transform: scale(1.05) translateY(-5px) !important;
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--accent-color), transparent 80%);
+  border: 1px solid var(--accent-color);
+}
+
+[data-theme="dark"] .hero .floating-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -906,6 +1041,10 @@ section,
   height: auto;
   margin-bottom: 15px;
   opacity: 0.8;
+}
+
+[data-theme="dark"] .about .profile-image-wrapper .signature-section .signature {
+  filter: invert(1) brightness(2.2);
 }
 
 .about .profile-image-wrapper .signature-section .quote {
@@ -2469,6 +2608,14 @@ section,
   padding: 3rem;
   border-radius: 1rem;
   height: 100%;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .contact .info-box {
+  background-color: color-mix(in srgb, var(--surface-color), transparent 40%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%);
 }
 
 .contact .info-box h3 {
@@ -2518,6 +2665,16 @@ section,
   justify-content: center;
   flex-shrink: 0;
   transition: 0.3s;
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 80%);
+}
+
+.contact .info-item:hover .icon-box {
+  background-color: var(--contrast-color);
+  transform: translateY(-5px);
+}
+
+.contact .info-item:hover .icon-box i {
+  color: var(--accent-color);
 }
 
 .contact .info-item .icon-box i {
@@ -3305,7 +3462,7 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
-  /* Add your styles here */
+  padding: 60px 0;
 }
 
 
@@ -3394,8 +3551,12 @@ section,
   /* Behind overlay content */
 }
 
+[data-theme="dark"] .coming-soon::before {
+  color: rgba(255, 255, 255, .5);
+}
+
 .coming-soon .entry-image img {
-  filter: blur(2px);
+  filter: blur(5px);
   /* Optional: blur the background image */
 }
 
