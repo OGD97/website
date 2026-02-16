@@ -135,7 +135,7 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
+  let glightbox = GLightbox({
     selector: '.glightbox'
   });
 
@@ -161,9 +161,26 @@
       filters.addEventListener('click', function () {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
+
+        const activeFilter = this.getAttribute('data-filter');
         initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+          filter: activeFilter
         });
+
+        // Update glightbox to only include visible items
+        if (glightbox) {
+          glightbox.destroy();
+        }
+
+        let selector = '.glightbox';
+        if (activeFilter !== '*') {
+          selector = `.isotope-item${activeFilter} .glightbox`;
+        }
+
+        glightbox = GLightbox({
+          selector: selector
+        });
+
         if (typeof aosInit === 'function') {
           aosInit();
         }
