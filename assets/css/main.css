@@ -607,25 +607,13 @@ section,
   font-size: 36px;
   font-weight: 700;
   padding: 0;
-  line-height: 1px;
+  line-height: 1.2;
   margin: 0;
   letter-spacing: 0.5px;
   position: relative;
 }
 
-.section-title h2::after {
-  content: "";
-  width: 0;
-  height: 1px;
-  display: block;
-  background: var(--accent-color);
-  margin-top: 10px;
-  transition: width 0.5s ease;
-}
 
-.section-title:hover h2::after {
-  width: 120px;
-}
 
 .section-title p {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
@@ -639,17 +627,20 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  padding: 120px 0;
+  padding: 140px 0 100px 0;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background: radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, transparent 40%);
 }
 
 [data-theme="dark"] .hero {
-  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%),
-    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent 40%);
+  background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    #0b0e14;
 }
 
 .hero::before {
@@ -661,12 +652,13 @@ section,
   bottom: 0;
   background: url("../img/bg/abstract-bg-1.webp") no-repeat center center;
   background-size: cover;
-  opacity: 0.08;
+  opacity: 0.03;
   z-index: 1;
+  filter: grayscale(100%);
 }
 
 [data-theme="dark"] .hero::before {
-  opacity: 0.15;
+  opacity: 0.05;
 }
 
 .hero .container {
@@ -692,21 +684,24 @@ section,
 }
 
 .hero .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 800;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--heading-color);
 }
 
 @media (max-width: 768px) {
   .hero .hero-title {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
+    letter-spacing: -1px;
   }
 }
 
 @media (max-width: 576px) {
   .hero .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -715,11 +710,55 @@ section,
   position: relative;
 }
 
+.hero .hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.hero .status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
 .hero .lead {
-  font-size: 1.2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 3rem;
-  line-height: 1.6;
+  font-size: 1.25rem;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  max-width: 540px;
 }
 
 @media (max-width: 768px) {
@@ -790,34 +829,39 @@ section,
 }
 
 .hero .hero-actions .btn {
-  padding: 12px 30px;
+  padding: 14px 34px;
   font-weight: 600;
-  border-radius: 50px;
+  border-radius: 12px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .hero .hero-actions .btn.btn-primary {
   background-color: var(--accent-color);
   color: var(--contrast-color);
-  border: 2px solid var(--accent-color);
+  border: none;
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 .hero .hero-actions .btn.btn-primary:hover {
-  background-color: transparent;
-  color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px color-mix(in srgb, var(--accent-color), transparent 70%);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
 }
 
 .hero .hero-actions .btn.btn-outline {
   background-color: transparent;
   color: var(--default-color);
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .hero .hero-actions .btn.btn-outline:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  border-color: var(--default-color);
+  transform: translateY(-3px);
 }
 
 .hero .social-links {
@@ -832,23 +876,25 @@ section,
 }
 
 .hero .social-links a {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 12px;
   background-color: var(--surface-color);
   color: var(--default-color);
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px color-mix(in srgb, var(--default-color), transparent 90%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--default-color), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
 }
 
 .hero .social-links a:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 .hero .social-links a i {
@@ -877,21 +923,32 @@ section,
 }
 
 .hero .hero-main-image {
-  border-radius: 20px;
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 30px;
+  box-shadow: 0 40px 100px color-mix(in srgb, var(--default-color), transparent 85%);
   position: relative;
   z-index: 2;
+  transition: all 0.5s ease;
+  border: 8px solid var(--contrast-color);
+}
+
+.hero .hero-main-image:hover {
+  transform: scale(1.02);
 }
 
 .hero .image-overlay {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 40px;
+  left: 40px;
   right: -20px;
   bottom: -20px;
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 30%));
-  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
+  border-radius: 30px;
   z-index: 1;
+  opacity: 0.15;
+}
+
+[data-theme="dark"] .hero .image-overlay {
+  opacity: 0.08;
 }
 
 .hero .floating-elements {
@@ -905,22 +962,26 @@ section,
 
 .hero .floating-card {
   position: absolute;
-  background-color: var(--surface-color);
-  padding: 15px 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 90%);
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--default-color), transparent 92%);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   white-space: nowrap;
   animation: float 6s ease-in-out infinite;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 40%);
+  z-index: 10;
 }
 
 .hero .floating-card:hover {
-  transform: scale(1.05) translateY(-5px) !important;
-  box-shadow: 0 10px 25px color-mix(in srgb, var(--accent-color), transparent 80%);
-  border: 1px solid var(--accent-color);
+  transform: scale(1.05) translateY(-10px) !important;
+  box-shadow: 0 30px 60px color-mix(in srgb, var(--accent-color), transparent 85%);
+  background: var(--surface-color);
 }
 
 [data-theme="dark"] .hero .floating-card {
@@ -951,42 +1012,21 @@ section,
 }
 
 .hero .floating-card.card-1 {
-  top: 10%;
-  left: -10%;
+  top: 5%;
+  left: -20%;
   animation-delay: 0s;
 }
 
-@media (max-width: 768px) {
-  .hero .floating-card.card-1 {
-    top: 5%;
-    left: -5%;
-  }
-}
-
 .hero .floating-card.card-2 {
-  top: 60%;
-  right: -15%;
+  top: 55%;
+  right: -20%;
   animation-delay: 2s;
 }
 
-@media (max-width: 768px) {
-  .hero .floating-card.card-2 {
-    top: 70%;
-    right: -10%;
-  }
-}
-
 .hero .floating-card.card-3 {
-  bottom: 15%;
-  left: -5%;
+  bottom: 5%;
+  left: -10%;
   animation-delay: 4s;
-}
-
-@media (max-width: 768px) {
-  .hero .floating-card.card-3 {
-    bottom: 10%;
-    left: 0%;
-  }
 }
 
 @keyframes float {
