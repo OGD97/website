@@ -53,7 +53,10 @@
     fetch(action, {
       method: 'POST',
       body: formData,
-      headers: {'X-Requested-With': 'XMLHttpRequest'}
+      headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      }
     })
     .then(response => {
       if( response.ok ) {
@@ -64,11 +67,29 @@
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      
+      let success = false;
+      let errorMessage = '';
+      try {
+        const json = JSON.parse(data);
+        if (json.success === "true" || json.success === true || json.ok) {
+          success = true;
+        } else {
+          errorMessage = json.message || 'Form submission failed';
+        }
+      } catch(e) {
+        if (data.trim() == 'OK' || data.toLowerCase().includes('success')) {
+          success = true;
+        } else {
+          errorMessage = data ? data : 'Form submission failed and no error message returned from: ' + action;
+        }
+      }
+
+      if (success) {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        throw new Error(errorMessage); 
       }
     })
     .catch((error) => {
