@@ -258,14 +258,34 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
-   * Theme Toggle
+   * Theme Toggle & Vanta.js Background
    */
   const themeToggle = document.querySelector('#theme-toggle');
 
   // Check for saved theme preference or use default light theme
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  // Initialize Vanta Net Effect
+  let vantaEffect;
+  if (typeof VANTA !== 'undefined') {
+    vantaEffect = VANTA.NET({
+      el: "#hero",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: currentTheme === 'dark' ? 0x1e3a8a : 0x93c5fd,
+      backgroundColor: currentTheme === 'dark' ? 0x0b0e14 : 0xffffff,
+      points: 12.00,
+      maxDistance: 20.00,
+      spacing: 18.00
+    });
   }
 
   if (themeToggle) {
@@ -274,9 +294,21 @@
       if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
+        if (vantaEffect) {
+          vantaEffect.setOptions({
+            color: 0x93c5fd,
+            backgroundColor: 0xffffff
+          });
+        }
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        if (vantaEffect) {
+          vantaEffect.setOptions({
+            color: 0x1e3a8a,
+            backgroundColor: 0x0b0e14
+          });
+        }
       }
     });
   }
